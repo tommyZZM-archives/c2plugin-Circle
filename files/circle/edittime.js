@@ -38,7 +38,7 @@
 //				display_str,		// as appears in event sheet - use {0}, {1} for parameters and also <b></b>, <i></i>, and {my} for the current behavior icon & name
 //				description,		// appears in event wizard dialog when selected
 //				script_name);		// corresponding runtime function name
-				
+
 AddCondition(0, cf_none, "Is enabled", "", "{my} is enabled", "Is the behavior enabled? ", "IsEnabled");
 
 AddCmpParam("Comparison", "Choose the way to compare the current speed.");
@@ -106,6 +106,7 @@ AddExpression(1, ef_return_number, "Radius X", "", "RadiusX", "Return the X radi
 AddExpression(2, ef_return_number, "Radius Y", "", "RadiusY", "Return the Y radius.");
 AddExpression(3, ef_return_number, "Origin X", "", "OriginX", "Return the X origin.");
 AddExpression(4, ef_return_number, "Origin Y", "", "OriginY", "Return the Y origin.");
+AddExpression(5, ef_return_number, "Angle", "", "Angle", "Return The Angle of the path, in degrees.");
 
 ////////////////////////////////////////
 ACESDone();
@@ -125,7 +126,7 @@ var property_list = [
 	new cr.Property(ept_float, 	"RadiusY",		50,		"The radius Y axis, in pixels"),
 	new cr.Property(ept_combo, "Initial state", "Enabled", "Whether to initially have the behavior enabled or disabled.", "Disabled|Enabled")
 	];
-	
+
 // Called by IDE when a new behavior type is to be created
 function CreateIDEBehaviorType()
 {
@@ -148,17 +149,17 @@ IDEBehaviorType.prototype.CreateInstance = function(instance)
 function IDEInstance(instance, type)
 {
 	assert2(this instanceof arguments.callee, "Constructor called as a function");
-	
+
 	// Save the constructor parameters
 	this.instance = instance;
 	this.type = type;
-	
+
 	// Set the default property values from the property table
 	this.properties = {};
-	
+
 	for (var i = 0; i < property_list.length; i++)
 		this.properties[property_list[i].name] = property_list[i].initial_value;
-		
+
 	// any other properties here, e.g...
 	// this.myValue = 0;
 }
