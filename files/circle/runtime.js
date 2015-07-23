@@ -240,6 +240,10 @@ cr.behaviors.Circle = function(runtime)
 		this.originY = oY;
 	};
 
+	Acts.prototype.SetSpeed = function (s)
+	{
+		this.speed = cr.to_radians(s);
+	};
 	behaviorProto.acts = new Acts();
 
 	//////////////////////////////////////
@@ -279,8 +283,7 @@ cr.behaviors.Circle = function(runtime)
 	Exps.prototype.OriginY = function (ret)
 	{
 		ret.set_float(this.originY);
-	};
-	
+	};	
 	
 	behaviorProto.exps = new Exps();
 	

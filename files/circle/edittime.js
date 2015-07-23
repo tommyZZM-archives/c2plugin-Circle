@@ -88,6 +88,8 @@ AddAction(8, 0, "Set X origin", "", "Set {my} X origin to <i>{0}</i>", "Set X or
 AddNumberParam("OriginY", "The Y origin")
 AddAction(9, 0, "Set Y origin", "", "Set {my} Y origin to <i>{0}</i>", "Set Y origin.", "SetOriginY");
 
+AddNumberParam("SetSpeed", "The Speed")
+AddAction(10, 0, "Set Speed", "", "Set {my} speed to <i>{0}</i>", "Set rotating speed.", "SetSpeed");
 ////////////////////////////////////////
 // Expressions
 
